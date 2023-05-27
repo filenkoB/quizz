@@ -1,0 +1,2 @@
+<p class="question-row">{{question.number}} {{question.text}}</p>
+<app-answer-list (setAnswer)="onSetAnswer($event)" [answerResponse]="answer" [answers]="question.answers"></app-answer-list>

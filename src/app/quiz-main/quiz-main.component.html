@@ -1,0 +1,17 @@
+<div *ngIf="!quizzFinished" class="wrapper">
+    <app-quiz-item (setAnswer)="onSetAnswer($event)" [answer]="answeredQuestions[number]" [question]="currentQuestion"></app-quiz-item>
+    <div class="control-button-wrapper">
+        <button class="finish-button" (click)="finishQuizz()">Завершити тестування</button>
+        <button class="next-button" (click)="goToNextQuestion()">Далі</button>
+    </div>
+</div>
+<div *ngIf="quizzFinished" class="wrapper">
+    <p class="result-caption">Ваш результат:</p>
+    <div class="result-wrapper">
+        <p class="result">{{ correntAnswers }} / {{ totalQuestions }}</p>
+        <img class="result-gif" src="./../../assets/image/result.gif">
+    </div>
+    <div class="control-button-wrapper">
+        <button [routerLink]="[ '/' ]" class="finish-button">Повернутися до тестів</button>
+    </div>
+</div>
